@@ -18,11 +18,11 @@ import { Button } from "./ui/button"
 
    return (
       <header className="border-b mb-5">
-        <div className="flex justify-between items-center mx-auto max-w-2xl px-5 lg:max-w-5xl" >
-        <div className="text-3xl font-bold" >Go<span className="text-orange-500" >Shop</span></div>
+        <div className="flex justify-between items-center mx-auto max-w-2xl px-5 md:max-w-6xl" >
+        <div className="text-3xl font-bold" >Go<span className="text-teal-700" >Shop</span></div>
         <nav className="hidden md:flex gap-6 font-semibold">
           {Links.map((item)=>
-          <div className={`${pathname === item.href ? 'text-orange-500':'text-zinc-900'} transition duration-100 hover:text-orange-500`} key={item.name} >
+          <div className={`${pathname === item.href ? 'text-teal-700':'text-zinc-900'} transition duration-100 hover:text-teal-700`} key={item.name} >
                <Link href={item.href} >
                 {item.name}
                </Link>
