@@ -3,9 +3,14 @@ import { ShoppingCart } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "./ui/button"
-
+import { useDispatch, useSelector } from "react-redux"
+import { toggleCart } from "@/store/CreateSlice"
+ 
   
  function Navbar() {
+
+  const dispatch = useDispatch()
+  const isOpen = useSelector((state:any)=>state.cart.isSheetOpen)
 
     const Links = [
         {name: 'Home', href: '/' },
@@ -16,6 +21,7 @@ import { Button } from "./ui/button"
 
     const pathname = usePathname()
 
+ 
    return (
       <header className="border-b mb-5">
         <div className="flex justify-between items-center mx-auto max-w-2xl px-5 md:max-w-6xl" >
@@ -30,8 +36,8 @@ import { Button } from "./ui/button"
         )}
         </nav>
 
-        <div>
-             <Button className="flex flex-col gap-1 size-16" variant={"outline"} > 
+        <div  >
+             <Button onClick={()=>dispatch(toggleCart())} className="flex flex-col gap-1 size-16" variant={"outline"} > 
             <ShoppingCart />
              </Button> 
         </div>

@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-
+import { ScrollArea } from "./ui/scroll-area"
  
 function Newest() {
 
@@ -14,32 +14,28 @@ function Newest() {
  
   return (
     <div className="max-w-6xl mx-auto px-5 my-24"> 
-      <div className="flex justify-between">
-        <div className="text-xl font-bold tracking-tight">Our Newest Products</div>
-        <div className="flex gap-1 items-center">
-            <p className="text-lg">See All</p>
-            <ArrowRight/>
-        </div>
-      </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:flex justify-between my-5">
-          {
-            products.map((product, i)=>
-              <Link key={i} href={`api/product/${product.slug}`}>
-              <div className="w-60 hover:opacity-80" >
+         <div className="text-xl font-bold tracking-tight">Our Newest Products</div>
+                 <div className="lg:flex md:grid grid-cols-3   justify-between my-5">
+           {
+            products.map((item, i)=>
+              <div key={i}  className="w-60 hover:opacity-80 shrink-0" >
+              <Link  href={`products/${item.slug}`}>
+             
               <div className="w-full"> 
-                <Image className="w-full h-full object-fit" src={product.image} alt='nike' width={200} height={200} />
+                <Image className="w-full h-full object-fit" src={item.image} alt='nike' width={200} height={200} />
             </div>
             <div className="flex justify-between px-1 pt-1" >
-              <p className="text-zinc-600 text-sm" >{product.title}</p>
-              <p className="text-sm font-medium">₹{product.price}</p>
+              <p className="text-zinc-600 text-sm" >{item.title}</p>
+              <p className="text-sm font-medium">₹{item.price}</p>
             </div>
-            <p className="text-zinc-500 px-1" >{product.category}</p>
-            </div>
+            <p className="text-zinc-500 px-1" >{item.category}</p>
             </Link>
-            )
+            </div>
+         
+          
+             )
           }
-        
-          </div>
+            </div> 
     </div>
   )
 }
