@@ -1,4 +1,4 @@
-import { BedDouble, CheckCheck } from "lucide-react"
+import { CheckCheck } from "lucide-react"
 import Link from "next/link"
 
  

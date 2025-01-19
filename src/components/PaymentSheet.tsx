@@ -5,7 +5,8 @@ import { useSelector } from "react-redux"
 import { removeCartItem, toggleCart } from "@/store/CreateSlice"
  import Image from "next/image"
 import { Key, useState } from "react"
-  
+ 
+   
 function PaymentSheet() {
 
  const dispatch = useDispatch()
@@ -13,7 +14,7 @@ function PaymentSheet() {
  const cartITems = useSelector((state:any)=>state.cart.cartItem)
 
   const [loadingPay, setLoadingPay] = useState(false)
-
+ 
  const totalPrice = cartITems.reduce((total:number, item:any)=>{
   return total + item.quantity * item.price
  },0)
@@ -21,7 +22,7 @@ function PaymentSheet() {
  function handleRemoveItem(slug:string) {  
      dispatch(removeCartItem(slug))
  }
- 
+
  async function stripeCheckout() {
   setLoadingPay(true)
   try {
@@ -49,9 +50,7 @@ function PaymentSheet() {
   }   
 }
 
-
    return (
-    
     <div> 
         <Sheet open={isOpen} onOpenChange={()=>dispatch(toggleCart())} >
           <SheetContent>

@@ -3,7 +3,7 @@ import { productData } from "@/productsData"
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
- 
+  
  function page() {
 
     const params = useParams<{category:string}>()

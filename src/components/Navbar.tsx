@@ -10,7 +10,6 @@ import { toggleCart } from "@/store/CreateSlice"
  function Navbar() {
 
   const dispatch = useDispatch()
-  const isOpen = useSelector((state:any)=>state.cart.isSheetOpen)
 
     const Links = [
         {name: 'Home', href: '/' },
