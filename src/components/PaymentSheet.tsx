@@ -10,7 +10,7 @@ import { Key, useState } from "react"
 function PaymentSheet() {
 
  const dispatch = useDispatch()
- const isOpen = useSelector((state:any)=>state.cart.isSheetOpen)
+ const isOpen = useSelector((state: any)=>state.cart.isSheetOpen)
  const cartITems = useSelector((state:any)=>state.cart.cartItem)
 
   const [loadingPay, setLoadingPay] = useState(false)
