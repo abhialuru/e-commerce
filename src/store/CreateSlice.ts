@@ -16,7 +16,7 @@ interface initialType {
  }
 
 const initialState: initialType = {
-    cartItem: JSON.parse(localStorage.getItem('cartItems') || '[]'),
+    cartItem:  [],
     isSheetOpen: false,
  }
 
@@ -36,8 +36,7 @@ const cartSlice = createSlice({
             }else state.cartItem.push(action.payload)
             
 
-            localStorage.setItem('cartItems', JSON.stringify(state.cartItem) )
-        },
+         },
         removeCartItem(state, action){
             const existingItemIndex = state.cartItem.findIndex((item)=>item.slug===action.payload)            
              if (state.cartItem[existingItemIndex].quantity > 1) {
@@ -46,8 +45,7 @@ const cartSlice = createSlice({
                 state.cartItem = state.cartItem.filter(item => item.slug !== action.payload);
             }
 
-            localStorage.setItem('cartItems', JSON.stringify(state.cartItem) )
-
+ 
         }
         }
     }
