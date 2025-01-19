@@ -17,7 +17,7 @@ import { useParams } from "next/navigation";
     {
             productList.map((item, i)=>
               <Link key={i} href={`products/${item.slug}`}>
-              <div className="w-60 hover:opacity-80" >
+              <div className="w-full md:w-60 hover:opacity-80" >
               <div className="w-full"> 
                 <Image className="w-full h-full object-fit" src={item.images[0]} alt='nike' width={200} height={200} />
             </div>

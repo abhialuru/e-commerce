@@ -12,7 +12,7 @@ function PaymentSheet() {
  const isOpen = useSelector((state:any)=>state.cart.isSheetOpen)
  const cartITems = useSelector((state:any)=>state.cart.cartItem)
 
- const [loadingPay, setLoadingPay] = useState(false)
+  const [loadingPay, setLoadingPay] = useState(false)
 
  const totalPrice = cartITems.reduce((total:number, item:any)=>{
   return total + item.quantity * item.price

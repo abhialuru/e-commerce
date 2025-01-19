@@ -15,10 +15,10 @@ function Newest() {
   return (
     <div className="max-w-6xl mx-auto px-5 my-24"> 
          <div className="text-xl font-bold tracking-tight">Our Newest Products</div>
-                 <div className="lg:flex md:grid grid-cols-3   justify-between my-5">
+                 <div className="lg:flex md:grid grid-cols-3 justify-between my-5">
            {
             products.map((item, i)=>
-              <div key={i}  className="w-60 hover:opacity-80 shrink-0" >
+              <div key={i}  className="w-full md:w-60 hover:opacity-80 shrink-0" >
               <Link  href={`products/${item.slug}`}>
              
               <div className="w-full"> 

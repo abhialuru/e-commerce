@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
         const {amount} = await req.json()
 
         const session = await stripe.checkout.sessions.create({
-            success_url: 'http://localhost:3000',
+            success_url: 'http://localhost:3000/Success',
             cancel_url: 'https://example.com/cancel',  
             line_items: [
                 {
