@@ -4,8 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import PaymentSheet from "@/components/PaymentSheet";
 import GlobalState from "@/components/GlobalState";
-import { constructMetadata } from "./lib/utils";
- 
+import { constructMetadata } from "@/lib/utils";
+  
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
