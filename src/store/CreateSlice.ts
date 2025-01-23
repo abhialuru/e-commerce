@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit"
-
+ 
 interface cartItemType {
-    slug: string
+    slug: string;
     images: any;
     category: string;
     title: string;
     price: number;
     description: string;
     quantity: number
-}
+} 
 
 interface initialType {
     cartItem: cartItemType[],
@@ -28,6 +28,8 @@ const cartSlice = createSlice({
             state.isSheetOpen =!state.isSheetOpen
         },
         addtoCart(state, action){
+             console.log(action.payload);
+             
             const existingItemIndex = state.cartItem.findIndex((item)=>item.slug===action.payload.slug)            
             state.isSheetOpen =!state.isSheetOpen
 
@@ -35,7 +37,7 @@ const cartSlice = createSlice({
                 state.cartItem[existingItemIndex].quantity += action.payload.quantity
             }else state.cartItem.push(action.payload)
             
-          },
+           },
         removeCartItem(state, action){
             const existingItemIndex = state.cartItem.findIndex((item)=>item.slug===action.payload)            
              if (state.cartItem[existingItemIndex].quantity > 1) {
@@ -43,7 +45,8 @@ const cartSlice = createSlice({
             }else{
                 state.cartItem = state.cartItem.filter(item => item.slug !== action.payload);
             }
-         }
+
+          }
         }
     }
 )

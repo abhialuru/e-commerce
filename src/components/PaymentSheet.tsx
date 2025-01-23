@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 import { removeCartItem, toggleCart } from "@/store/CreateSlice"
  import Image from "next/image"
 import { Key, useState } from "react"
+import { ScrollArea } from "./ui/scroll-area"
  
    
 function PaymentSheet() {
@@ -51,15 +52,16 @@ const cartITems = useSelector((state:any)=>state.cart.cartItem)
 }
 
    return (
-    <div> 
-        <Sheet open={isOpen} onOpenChange={()=>dispatch(toggleCart())} >
-          <SheetContent>
+         <Sheet open={isOpen} onOpenChange={()=>dispatch(toggleCart())} >
+          <SheetContent className="w-[80%] md:w-full h-full">
             <SheetHeader>
               <SheetTitle>Shopping Cart</SheetTitle>
             </SheetHeader>
+            
           <div className="w-full h-full flex flex-col justify-between">
+          <ScrollArea>
             <div className="w-full h-[85%]">   
-              {  cartITems.length > 0 ?
+              {  cartITems.length > 0  &&
                 cartITems.map((item:any,i: Key)=>
                    <div key={i} className="my-2 flex gap-1" >
                         <div className="w-20 shrink-0">
@@ -77,28 +79,29 @@ const cartITems = useSelector((state:any)=>state.cart.cartItem)
                           </div>
                         </div>
                    </div>
-                ):
-                <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
-                <h1 className="text-xl font-mono text-center">Your shopping is empty</h1>
-                <p className="text-center text-zinc-700">Be Inspired and discover from over wide range of products</p>
-                <button onClick={()=>dispatch(toggleCart())} className="bg-teal-700 text-white/95 px-5 py-2 rounded-sm focus:outline-none cursor-pointer">continue shopping</button>
+                )}    
               </div>
-              }    
-              </div>
+              </ScrollArea>
           { cartITems.length !== 0 &&
               <div className="flex flex-col gap-1 my-2" >
                 <div className="flex justify-between text-sm font-semibold">
                   <p>SubTotal : </p>
                   <p>₹{totalPrice}</p>
                 </div>
+                <p className="text-xs">All tax and delivery Charges included</p>
                 <button onClick={stripeCheckout} className="w-full py-1 bg-teal-700 text-white rounded-sm">{ loadingPay ? ' Processing...': 'Checkout' }</button>
               </div>
-}
+}         {cartITems.length === 0 && 
+                 <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
+                 <h1 className="text-xl font-mono text-center">Your shopping is empty</h1>
+                 <p className="text-center text-zinc-700">Be Inspired and discover from over wide range of products</p>
+                 <button onClick={()=>dispatch(toggleCart())} className="bg-teal-700 text-white/95 px-5 py-2 rounded-sm focus:outline-none cursor-pointer">continue shopping</button>
+               </div>}
               </div>
+              
            </SheetContent>
         </Sheet>
-    </div>
-  )
+   )
 }
 
 export default PaymentSheet

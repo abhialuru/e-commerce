@@ -1,39 +1,40 @@
  import Image from "next/image"
 import Link from "next/link"
+import { products } from "@/assets/frontend_assets/assets"
   
 function Newest() {
 
-  const products = [
-                      {image: '/ProductFour/nike1.jpg', title: 'Nike Windrunnner', category: 'Men', price: 3999, slug:'nike-windrunner'},
-                      {image: '/ProductOne/airnike1.jpeg', title: "Nike Air Force 1'07", category: 'Teens', price: 7999, slug: 'nike-air-force'},
-                      {image: '/ProductTwo/sweatshirt1.png', title: 'Nike Sportswear Pheonix Fieece', category: 'Women', price: 2750, slug: 'nike-sportswear-pheonix-fieece'},
-                      {image: '/ProductThree/nikewhite1.jpg', title: 'Nike Air Vapormax 2023 Flynit', category: 'Men', price: 6089, slug: 'nike-air-vapormax'},
-                  ]
- 
   return (
-    <div className="max-w-6xl mx-auto px-5 my-24"> 
-         <div className="text-xl font-bold tracking-tight">Our Newest Products</div>
-                 <div className="lg:flex md:grid grid-cols-3 justify-between my-5">
+    <div className="max-w-6xl mx-auto px-5 my-20"> 
+         <div className="w-full text-center text-xl font-bold tracking-tight underline underline-offset-2">Our Newest Products</div>
+        <div className="md:flex gap-5 w-fit mx-auto items-center hidden">
+          <div className="w-28 h-px bg-gray-300" />
+         <p className="w-fit text-center tracking-tight">Unveil our newest products, designed to elevate your experience!</p>
+         <div className="w-28 h-px bg-gray-300" />
+         </div>
+         <div className="w-full md:w-fit md:mx-auto">
+                 <div className="grid w-full md:grid-cols-3 gap-2 lg:grid-cols-4 my-5">
            {
-            products.map((item, i)=>
-              <div key={i}  className="w-full md:w-60 hover:opacity-80 shrink-0" >
-              <Link  href={`products/${item.slug}`}>
+            products.slice(0, 12).map((item, i)=>
+              <div key={i}  className="w-full md:w-60 shrink-0 relative" >
+            <p className="text-xs px-2 w-fit absolute top-0 left-0 z-10 bg-gray-800 text-slate-200 rounded-br-sm">Exclusive</p>
+
+              <Link  href={`products/${item._id}`}>
              
-              <div className="w-full"> 
-                <Image className="w-full h-full object-fit" src={item.image} alt='nike' width={200} height={200} />
+              <div className="w-full overflow-hidden"> 
+                <Image className="w-full h-full object-fit hover:scale-110" src={item.image[0]} alt='nike' width={500} height={500} />
             </div>
             <div className="flex justify-between px-1 pt-1" >
-              <p className="text-zinc-600 text-sm" >{item.title}</p>
+              <p className="text-zinc-600 text-sm line-clamp-1" >{item.name}</p>
               <p className="text-sm font-medium">₹{item.price}</p>
             </div>
             <p className="text-zinc-500 px-1" >{item.category}</p>
             </Link>
             </div>
-         
-          
              )
           }
-            </div> 
+          </div>
+             </div> 
     </div>
   )
 }

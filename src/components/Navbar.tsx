@@ -15,7 +15,7 @@ import { toggleCart } from "@/store/CreateSlice"
         {name: 'Home', href: '/' },
         {name: 'Men', href: '/Men'},
         {name: 'Women', href: '/Women'},
-        {name: 'Teens', href: '/Teens'}
+        {name: 'Teens', href: '/Kids'}
     ]
 
     const pathname = usePathname()
