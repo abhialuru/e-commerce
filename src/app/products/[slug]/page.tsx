@@ -32,7 +32,7 @@ import { products } from "@/assets/frontend_assets/assets"
     }
 
     return (
-    <div className="max-w-6xl mx-auto px-5 mt-14">
+    <div className="max-w-6xl mx-auto px-5">
        <div className="flex flex-col lg:flex-row gap-5">
             <ImageGallery  productItem={productItem} />
             <div className="flex flex-col gap-5">

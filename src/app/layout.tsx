@@ -29,11 +29,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >      
          <GlobalState>
-            <Navbar/> 
+             <Navbar/> 
+             <div className="flex flex-col w-full h-screen justify-between">
             <PaymentSheet/>
             {children}   
             <Footer/>
-          </GlobalState>   
+            </div>
+        </GlobalState>   
       </body>
      </html>
   );
