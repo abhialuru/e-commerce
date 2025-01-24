@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const stripe = require('stripe')('sk_test_51QcjkAJLaqa0JDRVKIzl9HY9D2PeMn15merRzJoAXSaHH2760TEdacUvYC0a7hVGKB413QLJUcn3CQeIqjdlDwcR00emNl8w1O')
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 export async function POST(req: NextRequest) {
     try {
@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
         const {amount} = await req.json()
 
         const session = await stripe.checkout.sessions.create({
-            success_url: 'https://goshop-rose.vercel.app/Success',
+            success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/Success`,
             cancel_url: 'https://example.com/cancel',  
             line_items: [
                 {
