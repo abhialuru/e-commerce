@@ -25,14 +25,11 @@ import { products } from "@/assets/frontend_assets/assets"
             quantity: 1,
             slug: productItem?._id
         }
-      
-            dispatch(addtoCart(Item))
-        
-        
+            dispatch(addtoCart(Item))   
     }
-
+    
     return (
-    <div className="max-w-6xl mx-auto px-5">
+    <div className="max-w-6xl mx-auto px-5 py-10">
        <div className="flex flex-col lg:flex-row gap-5">
             <ImageGallery  productItem={productItem} />
             <div className="flex flex-col gap-5">

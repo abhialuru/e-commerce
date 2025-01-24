@@ -4,8 +4,7 @@ import Navbar from "@/components/Navbar";
 import PaymentSheet from "@/components/PaymentSheet";
 import GlobalState from "@/components/GlobalState";
 import { constructMetadata } from "@/lib/utils";
-import Footer from "@/components/Footer";
-  
+   
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,13 +28,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >      
          <GlobalState>
-             <Navbar/> 
-             <div className="flex flex-col w-full h-screen justify-between">
-            <PaymentSheet/>
+             <Navbar /> 
+             <PaymentSheet/>
             {children}   
-            <Footer/>
-            </div>
-        </GlobalState>   
+          </GlobalState>   
       </body>
      </html>
   );

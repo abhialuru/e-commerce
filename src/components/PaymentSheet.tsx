@@ -4,11 +4,10 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet"
 import { useSelector } from "react-redux"
 import { removeCartItem, toggleCart } from "@/store/CreateSlice"
  import Image from "next/image"
-import { Key, useEffect, useState } from "react"
+import { Key,useState } from "react"
 import { ScrollArea } from "./ui/scroll-area"
 import { Button } from "./ui/button"
-import { stripe } from "@/lib/stripe"
-import { useRouter } from "next/navigation"
+ import { useRouter } from "next/navigation"
  
    
 function PaymentSheet() {
@@ -55,36 +54,6 @@ const cartITems = useSelector((state:any)=>state.cart.cartItem)
     setLoadingPay(false)
   }   
 }
-
-  //  async function stripeCheckout() {
-
-  //   console.log(process.env.NEXT_PUBLIC_BASE_URL);
-  
-  //    const product = await stripe.products.create({
-  //     name: 'GoShop - Perfect Destination to shop',
-  //     default_price_data: {
-  //       currency: 'inr',
-  //       unit_amount: totalPrice * 100
-  //     },
-  //    })
-  
-  //    const stripeSession = await stripe.checkout.sessions.create({
-  //     success_url: `${process.env.NEXT_BASE_URL}/Success`,
-  //     cancel_url : `${process.env.NEXT_BASE_URL}/Success`,
-  //     mode: 'payment',
-  //     line_items: [{
-  //       price: product.default_price as string,
-  //       quantity: 1
-  //     }], 
-  //    })
-  
-  //    const checkoutUrl = stripeSession.url
-  
-  //    if (checkoutUrl) {
-  //      router.push(checkoutUrl)
-  //    }
-  // }
-  
 
    return (
          <Sheet open={isOpen} onOpenChange={()=>dispatch(toggleCart())} >
